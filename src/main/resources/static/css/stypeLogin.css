@@ -1,0 +1,190 @@
+
+.container{
+	margin-top: -150px;
+	
+}
+
+
+
+div.page.col-lg-5.col-md-7{
+	margin-left: 350px;
+	margin-top: -20px;
+}
+.text-center img{
+	width: 36px;
+	height: 36px;
+}
+
+
+.btn-neutral {
+    color: #212529;
+    border-color: #fff;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
+}
+a {
+    text-decoration: none;
+    color: #5e72e4;
+    background-color: transparent;
+}
+.btn {
+    font-size: .875rem;
+    font-weight: 600;
+    line-height: 1.5;
+    display: inline-block;
+    padding: .625rem 1.25rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    
+}
+.btn-icon .btn-inner--icon img {
+    width: 30px;
+	height: 30px;
+}
+/*hover nút google*/
+.btn-neutral:not(:disabled):not(.disabled).active, .btn-neutral:not(:disabled):not(.disabled):active, .show>.btn-neutral.dropdown-toggle {
+    color: #212529;
+    border-color: #fff;
+    background-color: #e6e6e6;
+}
+.btn:not(:disabled):not(.disabled).active, .btn:not(:disabled):not(.disabled):active {
+    box-shadow: none;
+}
+/* bóng button*/
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 7px 14px rgb(50 50 93 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+}
+.btn {
+    
+    font-size: .875rem;
+    position: relative;
+    transition: all .15s ease;
+    letter-spacing: .025em;
+    text-transform: none;
+    will-change: transform;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: .375rem;
+    background-color: #fff;
+    background-clip: border-box;
+}
+
+.navbar-brand img{
+	margin-left: 700px;
+	margin-top: 5px;
+	width: 80px;
+	border-radius: 50%;
+}
+
+
+.container-header h2{
+	
+	margin-left: 650px;
+	margin-top: -70px;
+	color: #fff;
+}
+
+
+.text-center img{
+width: 36px;
+height: 36px;
+}
+
+.justify-content-center{
+	margin-left: 580px;
+	width: fit-content;
+	height: 300px;
+	color: #fff;
+
+}
+
+.main-content{
+	background-color:#172b4d!important ;
+}
+
+
+
+.footer{
+	background-color:#172b4d!important;
+	height: 100px;
+	width: auto;
+}
+
+.separator-skew{
+	
+	height: 59px;
+}
+
+.separator-bottom{
+	top: auto;
+	bottom: 0;
+}
+
+.separator{
+	
+	position:relative;
+	top: auto;
+}
+
+.fill-default {
+    fill: #172b4d;
+}
+
+
+.forpass small{
+    margin-left: 129px;
+    color: blue;
+}
+
+/*nut sign in*/
+.btn-primary{
+    background-color: #5e72e4;
+  }
+
+  .btn-primary:hover {
+    color: #fff;
+    border-color: #5e72e4;
+    background-color: #5e72e4;
+}
+/*end*/
+
+.form-group div.input-group div.input-group-prepend span.input-group-text{
+    background-color: #fff;
+    border-right: 0px;
+}
+
+.form-group div.input-group input.form-control{
+    border-left: 0px;
+}
+
+.input-group:hover{
+    
+   transform: translateY(-1px);
+   box-shadow: 0 7px 14px rgb(50 50 93 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+
+}
+
+
+.input-group-alternative .form-control, .input-group-alternative .input-group-text {
+    border: 1;
+}
+
+
+
+
+/*eye trong forgot password*/

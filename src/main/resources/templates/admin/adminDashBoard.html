@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>MabuStore | Admin</title>
+	<link rel="icon" th:href="@{/img/logowhite.jpg}" type="image/x-icon">
+	<!--JS library-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"
+		integrity="sha512-RCgrAvvoLpP7KVgTkTctrUdv7C6t7Un3p1iaoPr1++3pybCyCsCZZN7QEHMZTcJTmcJ7jzexTO+eFpHk4OCFAg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css"
+		integrity="sha512-YdYyWQf8AS4WSB0WWdc3FbQ3Ypdm0QCWD2k4hgfqbQbRCJBEgX0iAegkl2S1Evma5ImaVXLBeUkIlP6hQ1eYKQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+		integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+		crossorigin="anonymous"></script>
+
+	<!-- JS -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"
+		integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+	<!-- ION ICON -->
+	<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.2.3/ionicons/ionicons.esm.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.2.3/ionicons/ionicons.js"></script>
+
+	<!--Angular-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+
+	<link th:href="@{/lib/cssAdmin/bootstrap.min.css}" rel="stylesheet" />
+
+	<link th:href="@{/css/stylesdaseboard.css}" rel="stylesheet" />
+	<link th:href="@{/css/stylesprofile.css}" rel="stylesheet" />
+	<link th:href="@{/css/stylescategory.css}" rel="stylesheet" />
+	<link th:href="@{/css/stylesproduct.css}" rel="stylesheet" />
+	<link th:href="@{/css/stylesvoucher.css}" rel="stylesheet" />
+	<link th:href="@{/css/stylesorder.css}" rel="stylesheet" />
+	<link th:href="@{/css/styleall.css}" rel="stylesheet" />
+
+	<!--Custom Font-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i"
+		rel="stylesheet" />
+
+</head>
+<script th:src="@{/js/adminDasboard.js}"></script>
+
+<!-- navbar navbar-custom navbar-fixed-top -->
+
+<body ng-app="myApp">
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><span>MABUSTORE</span> Admin</a>
+				<ul class="nav navbar-top-links navbar-right">
+					<div class="profile-sidebar">
+						<div class="profile-usertitle">
+							<div class="profile-usertitle-name"><span sec:authentication="name"></span></div>
+							<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online
+							</div>
+						</div>
+					</div>
+				</ul>
+			</div>
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<div class="divider"></div>
+		<ul class="nav menu">
+			<li id="dashboard"><a><i class="fa fa-chart-area"></i> DashBoard</a></li>
+			<li id="product"><a><em class="fa fa-shopping-cart">&nbsp;</em> Product</a></li>
+			<li id="profile"><a><em class="fa fa-user">&nbsp;</em> Profile</a></li>
+			<li id="category"><a><em class="fa fa-sitemap">&nbsp;</em> Category</a></li>
+			<li id="order"><a><em class="fa fa-paper-plane">&nbsp;</em> Order</a></li>
+			<li id="voucher"><a><em class="fa fa-gift">&nbsp;</em> Voucher</a></li>
+			<li class="logoutLi" id="logoutLi"><a><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+		</ul>
+	</div>
+	<div class="logoutDiv" id="logoutDiv">
+		<form th:action="@{/logout}" method="post" class="dropdown-item">
+			<input type="submit" class=" btn btn-danger logoutClick" id="logoutClick" value="Logout" />
+		</form>
+	</div>
+	<!--/.sidebar-->
+
+	<div style="margin-top: 60px;" class=" col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" id="dashboardPage">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+						<em class="fa fa-home"></em>
+					</a></li>
+				<li class="active">Dashboard</li>
+			</ol>
+		</div>
+		<div style="margin-top: 5px;" class="panel panel-container">
+			<div class="row-panel" style="height: 130px; margin-top: 5px;">
+				<div style="margin-top: 5px;" class="col-xs-6 col-md-3 col-lg-3 no-padding">
+					<div class="panel panel-teal panel-widget border-right">
+						<div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-blue"></em>
+							<div class="large">120</div>
+							<div class="text-muted">New Orders</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+					<div class="panel panel-blue panel-widget border-right">
+						<div class="row no-padding"><em class="fa fa-xl fa-comments color-orange"></em>
+							<div class="large">52</div>
+							<div class="text-muted">Comments</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+					<div class="panel panel-orange panel-widget border-right">
+						<div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
+							<div class="large">24</div>
+							<div class="text-muted">New Users</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+					<div class="panel panel-red panel-widget ">
+						<div class="row no-padding"><em class="fa fa-xl fa-search color-red"></em>
+							<div class="large">25.2k</div>
+							<div class="text-muted">Page Views</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--/.row-->
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4>Traffic Overview</h4>
+						<div style="margin-top: -40px;" class="header-icon-dashboard">
+							<ul class="pull-right panel-settings panel-button-tab-right">
+								<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown"
+										href="#">
+										<em class="fa fa-cogs"></em>
+									</a>
+									<ul class="dropdown-menu dropdown-menu-right">
+										<li>
+											<ul class="dropdown-settings">
+												<li><a href="#">
+														<em class="fa fa-cog"></em> Settings 1
+													</a></li>
+												<li class="divider"></li>
+												<li><a href="#">
+														<em class="fa fa-cog"></em> Settings 2
+													</a></li>
+												<li class="divider"></li>
+												<li><a href="#">
+														<em class="fa fa-cog"></em> Settings 3
+													</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<span style="margin-left: 200px;"
+								class="pull-right clickable panel-toggle panel-button-tab-left"><em
+									class="fa fa-toggle-up"></em></span>
+						</div>
+					</div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
+							<canvas class="main-chart" id="line-chart" height="150" width="600"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/.row-->
+	</div>
+
+	<!--/.product page-->
+	<div style="margin-top: 60px;" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" id="productPage"
+		ng-controller="proCtrlProduct">
+
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+						<em class="fa fa-home"></em>
+					</a></li>
+				<li class="active">Product</li>
+			</ol>
+		</div>
+
+		<!-- SET STATUS -->
+		<div class="form-group" id="form-all">
+			<label style="color: mediumpurple;" id="lblStatus" for="exampleFormControlSelect1">Status</label>
+			<select class="form-control" ng-model="searchproduct.status" id="exampleFormControlSelect1">
+				<option value="true" selected>Active</option>
+				<option value="false">Inactive</option>
+			</select>
+		</div>
+		<!-- END SET STATUS -->
+
+		<!--search-->
+		<div class="sample one">
+			<div id="search-all">
+				<input type="text" name="search" ng-model="searchtxt" placeholder="Search...">
+				<button type="submit" class="btn btn-search fa fa-search"></button>
+			</div>
+		</div>
+		<!--end search-->
+
+		<!-- SHOW PRODUCT -->
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Product name</th>
+					<th scope="col">Image</th>
+					<th scope="col">Price of product</th>
+					<th scope="col">Status</th>
+					<th scope="col">Size</th>
+					<th scope="col">Category</th>
+					<!-- <th scope="col">Functional</th>
+            <th scope="col">Functional</th> -->
+				</tr>
+			</thead>
+			<tbody>
+				<!-- <tr ng-repeat="product in list_products" ng-if="product.status==true"> -->
+				<tr ng-repeat="product in list_products | filter: searchtxt | filter: searchproduct">
+					<td>{{product.id}}</td>
+					<td>{{product.name}}</td>
+					<td>
+						<img src="../img/{{product.picture}}" width="80px" alt="none" />
+					</td>
+					<td>{{product.price}}</td>
+					<td>{{product.status ? 'Active': 'Inactive'}}</td>
+					<td>{{product.size}}</td>
+					<td>{{product.category.categoryType}}</td>
+					<div>
+						<td ng-if="product.status==true">
+							<button type="button" class="btn btn-warning" data-toggle="modal"
+								data-target="#UpdateModal{{product.id}}">
+								Update
+							</button>
+							<!-- Modal -->
+							<div class="modal fade" id="UpdateModal{{product.id}}" tabindex="-1" role="dialog"
+								aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document"
+									style="margin-top: 180px;">
+									<div class="modal-content" style="height: 620px;">
+										<div class="modal-header">
+											<h5 class="modal-title">
+												Update Modal
+											</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<form enctype="multipart/form-data" id="updateFormProduct{{product.id}}">
+												<div class="form-group">
+													<label>ID</label>
+													<input name="id" style="width: 400px;" ng-model="product.id"
+														type="text" class="form-control" aria-describedby="NameHelp" />
+												</div>
+												<div class="form-group">
+													<label>Name</label>
+													<input name="name" style="width: 400px;" ng-model="product.name"
+														type="text" class="form-control" aria-describedby="NameHelp" />
+												</div>
+												<div class="form-group">
+													<label>Image</label>
+													<input type="file" name="file" accept="image/png, image/jpeg" />
+													<!--<img src="" alt="Image Product" id="thumbnail">-->
+												</div>
+												<div class="form-group">
+													<label>Price</label>
+													<input type="number" style="width: 400px;" name="price"
+														ng-model="product.price" class="form-control" />
+												</div>
+												<div class="form-group">
+													<label>Status</label>
+
+													<div ng-if="product.status == true">
+														<select name="status" class="custom-select">
+															<option value="true" selected>Active</option>
+															<option value="false">Inactive</option>
+														</select>
+													</div>
+
+													<div ng-if="product.status ==false">
+														<select name="status" class="custom-select">
+															<option value="true">Active</option>
+															<option value="false" selected>Inactive</option>
+														</select>
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label>Size</label>
+													<input name="size" style="width: 400px;" ng-model="product.size"
+														type="text" class="form-control" />
+												</div>
+												<div class="form-group">
+													<label>Category</label>
+													<select class="custom-select" name="categoryID">
+														<option ng-repeat="category in list_categories"
+															ng-value="{{category.categoryId}}"
+															ng-selected="category.id === product.category.categoryId">
+															{{category.categoryType}}
+														</option>
+													</select>
+												</div>
+
+												<!-- UPDATE -->
+												<input type="button" value="Update" ng-click="updateProduct(product.id)"
+													class="btn btn-primary"></input>
+												<!-- <button data-toggle="modal" data-target="#myModal" ng-click="updateProduct(product)"> -->
+												<!-- Update
+              </button> -->
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</td>
+						<!-- DELETE -->
+						<td ng-if="product.status==true">
+							<button type="button" ng-click="deleteProduct(product)"
+								class="btn btn-danger">Inactive</button>
+						</td>
+						<td ng-if="product.status==false">
+							<button type="button" ng-click="recoverProduct(product)"
+								class="btn btn-danger">Recover</button>
+						</td>
+					</div>
+				</tr>
+			</tbody>
+		</table>
+
+		<!-- ADD PRODUCT -->
+		<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#AddModal">
+			Add
+		</button>
+		<!-- Modal CREATE PRODCT -->
+		<div ng-submit="createProduct()" class="modal fade" id="AddModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document" style="margin-top: 180px;">
+				<div class="modal-content" style="height: 600px;">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Add Modal</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form enctype="multipart/form-data" id="addFormProduct">
+							<div class="form-group">
+								<label>Name</label>
+								<input name="name" style="width: 400px;" type="text" class="form-control"
+									aria-describedby="NameHelp" placeholder="Enter Name" />
+							</div>
+							<div class="form-group">
+								<label>Image</label>
+								<input type="file" name="file" accept="image/png, image/jpeg" />
+								<!--<img src="" alt="Image Product" id="thumbnail">-->
+							</div>
+							<div class="form-group">
+								<label>Price</label>
+								<input name="price" style="width: 400px;" type="number" class="form-control"
+									placeholder="Price" />
+							</div>
+							<div class="form-group">
+								<label>Status</label>
+								<select name="status" class="custom-select">
+									<option value="true" ng-selected>Active</option>
+									<option value="false">Inactive</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Size</label>
+								<input name="size" type="number" style="width: 400px;" class="form-control"
+									placeholder="Size" />
+							</div>
+							<div class="form-group">
+								<label>Category</label>
+								<select name="categoryID" class="custom-select">
+									<option ng-repeat="category in list_categories" ng-value="{{category.categoryId}}">
+										{{category.categoryType}}
+									</option>
+								</select>
+							</div>
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Button trigger modal -->
+	</div>
+
+	<!-- Profile page -->
+	<nav style="margin-top: 60px;" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" id="profilePage"
+		ng-controller="proCtrlProfile">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+						<em class="fa fa-home"></em>
+					</a></li>
+				<li class="active">Profile</li>
+			</ol>
+		</div>
+		<div class="box-profile">
+			<!-- Modal -->
+			<div class="modal fade" id="AddStaffModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog" role="document" style="margin-top: 180px;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 style="margin-left: 300px; color: blueviolet;" class="modal-title"
+								id="exampleModalLabel">Add new</h3>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<div class="iduser">
+										<label for="inputIdUser">ID User</label>
+										<input type="text" class="form-control" readonly>
+									</div>
+									<div class="idorder">
+										<label for="inputUsername">Username</label>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<br>
+								<div class="form-group">
+									<div class="iduser">
+										<label for="inputPhone">Phone</label>
+										<input type="number" class="form-control">
+									</div>
+									<div class="idorder">
+										<label for="inputGmail">Gmail</label>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<br>
+								<div class="form-group">
+									<div class="iduser">
+										<label for="inputActived">Actived</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="idorder">
+										<label for="inputBirthday">Birthday</label>
+										<input type="date" class="form-control">
+									</div>
+								</div>
+								<br>
+								<div class="form-group">
+									<div class="iduser">
+										<label for="inputGender">Gender</label>
+										<br>
+										<input type="radio" name="gender" value="male"> Male
+										<input type="radio" name="gender" value="female"> Female
+									</div>
+									<div class="idorder">
+										<label for="inputRole">Role</label>
+										<br>
+										<select
+											style="border-radius: 5px; border:1px solid rgba(2, 2, 2, 0.158); width: 300px; height: 35px;"
+											name="example">
+											<option value="A">User</option>
+											<option value="B">Customer</option>
+											<option value="-">Admin</option>
+										</select>
+									</div>
+								</div>
+							</form>
+							<button type="button" class="btn btn-warning btnSubmit" data-toggle="modal">Submit</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<!--card profile-->
+			<div class="card">
+				<div class="box">
+					<div style="margin-left: 60px;">
+						<br>
+						<input class="form-control" id="textBoxSearch" type="text" placeholder="Check member">
+						<br>
+						<div class="button">
+							<button type="button" class="btn btn-warning" id="btn-cbp"> Phone</button>
+							<button type="button" class="btn btn-warning" id="btn-cbe"> Email</button>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+		</div>
+		<div class="container-fluid">
+			<!--card profile-->
+			<div style="margin-top: -120px; margin-left: 755px;" class="card">
+				<div class="box">
+					<form>
+						<button type="submit" class="btn btn-warning" ng-click="fillProfile()">Customer</button>
+					</form>
+				</div>
+			</div>
+			<br>
+		</div>
+
+		<div class="profile" ng-hide="empolyee == null">
+			<div class="card">
+				<!--button edit-->
+				<div class="card-header">
+					<!-- seach-->
+					<form class="form-inline my-2 my-lg-0">
+						<input class="form-control mr-sm-2" type="search" id="searchUser" placeholder="Search" aria-label="Search">
+						<button class="btn btn-warning my-2 my-sm-0" type="button" id="btn-sUser">Search</button>
+					</form>
+					<!--end seach-->
+					<button type="button" class="btn btn-warning btnAddNew" data-toggle="modal"
+						data-target="#AddStaffModal" ng-disabled="empolyee.roleId == '2'">
+						Add new
+						<button type="button" class="btn btn-warning btnEdit" data-toggle="modal"
+							data-target="#EditModal" ng-disabled="empolyee.roleId == '2'" ng-click=edit()>
+							Edit
+						</button>
+						<!--modal edit-->
+				</div>
+				<div class="card-body">
+					<form>
+						<div class="form-row">
+							<div class="form-group col-sm-5 ">
+								<label for="inputUsername">Full Name</label>
+								<input type="text" class="form-control" id="nameUser" value="{{empolyee.fullName}}"
+									ng-disabled="isDisable">
+							</div>
+							<div class="form-group col-md-5 col-md-offset-2">
+								<label for="inputGmail">Gmail</label>
+								<input type="text" class="form-control" id="emailUser" value="{{empolyee.email}}"
+									disabled>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-5">
+								<label for="inputAddress">Address</label>
+								<textarea type="text" class="form-control" id="addressUser" value="{{empolyee.address}}"
+									ng-disabled="isDisable"></textarea>
+							</div>
+							<div class="form-group col-md-5 col-md-offset-2">
+								<label for="inputPhone">Phone</label>
+								<input type="number" class="form-control" id="phoneUser" value="{{empolyee.phoneNumber}}"
+									ng-disabled="isDisable">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-5 ">
+								<label for="inputBirthday">Birthday</label>
+								<input type="date" class="form-control" id="birthdayUser" value="{{empolyee.birthday}}"
+									ng-disabled="isDisable">
+							</div>
+							<div class="form-group col-md-3  col-md-offset-2">
+								<label for="inputRole">Role</label>
+								<select
+									style="border-radius: 5px; border:1px solid rgba(2, 2, 2, 0.158); width: 300px; height: 35px;"
+									name="example" ng-disabled="isDisable" id="roleUser">
+									<option ng-selected="empolyee.roleID == '2'" value="2">Staff</option>
+									<option ng-selected="empolyee.roleID == '1'" value="1">Admin</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputGender">Gender</label>
+							<br>
+							<input type="radio" name="gender" value="1" id="male-radio" ng-checked="empolyee.sex === true"
+								ng-disabled="isDisable"> Male
+							<input type="radio" name="gender" value="0" id="female-radio" ng-checked="empolyee.sex === false"
+								ng-disabled="isDisable"> Female
+						</div>
+
+
+
+						<button type="button" class="btn btn-warning btnResetPassword" data-toggle="modal" id="rspw"
+							ng-disabled="empolyee.roleID == '2'">
+							Reset password
+						</button>
+						<button type="button" id="updateUser" class="btn btn-warning btnSaveChanges" data-toggle="modal"
+							ng-hide="isDisable" ng-disabled="empolyee.roleID == '2'">
+							Save changes
+						</button>
+					</form>
+				</div>
+			</div>
+			<br>
+		</div>
+	</nav>
+
+	<!--Category Page-->
+	<div style="margin-top: 60px;" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" id="categoryPage"
+		ng-controller="proCtrlCategory">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+						<em class="fa fa-home"></em>
+					</a></li>
+				<li class="active">Category</li>
+			</ol>
+		</div>
+		<!-- <div class="form-group" id="form-all">
+			<label style="color: mediumpurple;" id="lblStatus" for="exampleFormControlSelect1">Status</label>
+			<select class="form-control" ng-model="searchcategory.categoryStatus" id="exampleFormControlSelect1">
+				<option value="true">Active</option>
+				<option value="false">Inactive</option>
+			</select>
+		</div> -->
+
+		<div class="form-group" id="form-all">
+			<label style="color: mediumpurple;" id="lblStatus" for="exampleFormControlSelect1">Status</label>
+			<select class="form-control" ng-model="searchcategory.categoryStatus" id="exampleFormControlSelect1">
+				<option ng-repeat="x in dataSelectCategory" value="{{x.value}}" ng-selected="{{x.selected == yes}}">
+					{{x.name}}</option>
+			</select>
+		</div>
+
+		<div class="sample one">
+			<div id="search-all">
+				<input type="text" name="search" ng-model="searchtxt" placeholder="Search...">
+				<button type="submit" class="btn btn-search fa fa-search"></button>
+			</div>
+		</div>
+
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Type</th>
+					<th scope="col">Status</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="category in list_categories | filter: searchtxt | filter: searchcategory">
+					<td>{{category.categoryId}}</td>
+					<td>{{category.categoryType}}</td>
+					<td>{{category.categoryStatus ? 'Active': 'Inactive'}}</td>
+					<td>
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-warning" data-toggle="modal"
+							data-target="#UpdateCategoryModal{{category.categoryId}}">
+							Update
+						</button>
+
+						<!-- Modal -->
+						<div class="modal fade" id="UpdateCategoryModal{{category.categoryId}}" tabindex="-1"
+							role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered" role="document" style="margin-top: 180px;">
+								<div class="modal-content" style=" height: 350px;">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">Update Category</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<form enctype="multipart/form-data"
+											id="updateFormCategory{{category.categoryId}}">
+											<div class="form-group">
+												<label>Category ID</label>
+												<input type="text" class="form-control" style="width: 400px;"
+													aria-describedby="emailHelp" name="categoryId"
+													value="{{category.categoryId}}" readonly>
+											</div>
+											<div class="form-group">
+												<label>Category Type</label>
+												<input type="text" class="form-control" style="width: 400px;"
+													name="categoryType" value="{{category.categoryType}}">
+											</div>
+											<div class="form-group">
+												<label>Status</label>
+												<div ng-if="category.categoryStatus == true">
+													<select name="categoryStatus" class="custom-select">
+														<option value="true" selected>Active</option>
+														<option value="false">Inactive</option>
+													</select>
+												</div>
+
+												<div ng-if="category.categoryStatus == false">
+													<select name="categoryStatus" class="custom-select">
+														<option value="true">Active</option>
+														<option value="false" selected>Inactive</option>
+													</select>
+												</div>
+											</div>
+											<button type="submit" ng-click="updateCategory(category.categoryId)"
+												class="btn btn-primary">Submit</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+					<!--btn -->
+					<td><button type="button" ng-click="deleteCategory(category.categoryId)"
+							class="btn btn-danger">Delete</button></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<!--add category-->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddCategoryModal">Add</button>
+		<!-- Modal -->
+		<div class="modal fade" id="AddCategoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document" style="margin-top: 180px;">
+				<div class="modal-content" style="height: 300px;">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form ng-submit="createCategory()" enctype="multipart/form-data" id="addFormCategory">
+							<div class="form-group">
+								<label for="inputType">Type</label>
+								<input type="text" style="width: 400px;" class="form-control" name="categoryType"
+									aria-describedby="NameHelp" placeholder="Enter Type">
+							</div>
+							<div class="form-group">
+								<label>Status</label>
+								<select name="categoryStatus" class="custom-select">
+									<option value="true" ng-selected>Active</option>
+									<option value="false">Inactive</option>
+								</select>
+							</div>
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--Order page START-->
+	<div style="margin-top: 60px;" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" id="orderPage">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+						<em class="fa fa-home"></em>
+					</a></li>
+				<li class="active">Order</li>
+			</ol>
+		</div>
+		<!--filter-->
+
+		<div class="sample one">
+			<div id="search-all">
+				<input type="text" id="search" placeholder="Search...">
+			</div>
+		</div>
+		<!--end seach-->
+		<div class="tableorder" id="tableorder">
+			<table class="table table-borderless text-center" id="orderTb">
+				<thead>
+					<tr>
+						<th scope="col">ID Order</th>
+						<th scope="col">Date Created</th>
+						<th scope="col">State</th>
+						<th scope="col">Delivery Type</th>
+						<th scope="col">Total</th>
+						<th scope="col">#</th>
+
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="OrderModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+			role="dialog">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content" style="height: 800px; width:800px; margin-top: 200px">
+					<div class="modal-body">
+						<div class="container">
+							<div class=" text-center">
+								<img src="img/logoblack.jpg" alt="" style="width: 100px; height: 100px; margin-left: -350px;">
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-md-4 order-md-2 mb-4" style="margin-left: -200px;">
+									<h4 class="d-flex justify-content-between align-items-center mb-3">
+										<span class="text-muted">Item</span> <span
+											class="badge badge-secondary badge-pill" style="transform: translate(-280px, 0px);" id="Total-item">3</span>
+									</h4>
+									<ul class="list-group mb-3 sticky-top" id="item-ul" style="width: 200px;">
+
+									</ul>
+									<ul class="list-group mb-3 sticky-top" id="item-total" style="width: 200px;">
+										<li class="list-group-item d-flex justify-content-between">
+											<span>Total (USD)</span> <strong id="total-amount">$20</strong>
+										</li>
+									</ul>
+									<form class="card p-2" style="margin-left: -0px; width: 200px; height: 50px;">
+										<div class="input-group">
+											<input type="text" class="form-control" id="voucher-code"
+												placeholder="Voucher" disabled>
+										</div>
+									</form>
+								</div>
+								<div class="col-md-8 order-md-1" style="text-align: left;">
+									<h4 class="mb-3">Billing Checked</h4>
+									<form class="needs-validation" novalidate="">
+										<div class="mb-3">
+											<label for="username">Full name</label>
+											<div class="input-group">
+												<input type="text" style="width: 550px;" class="form-control"
+													id="username-details" placeholder="Username" disabled>
+												<div class="invalid-feedback" style="width: 100%;">
+													Your username is required.</div>
+											</div>
+										</div>
+										<div class="mb-3">
+											<label for="phone">Phone Number</label> <input type="text"
+												style="width: 550px;" class="form-control" id="phone-details"
+												placeholder="123123123" disabled>
+											<div class="invalid-feedback">Please enter a valid email
+												address for shipping updates.</div>
+										</div>
+										<div class="mb-3">
+											<label for="address">Address</label> <input type="text"
+												style="width: 550px;" class="form-control" id="address-details"
+												placeholder="1234 Main St" disabled>
+											<div class="invalid-feedback">Please enter your shipping
+												address.</div>
+										</div>
+										<div class="mb-3">
+											<label for="address2">Note <span
+													class="text-muted">(Optional)</span></label>
+											<textarea type="" style="width: 550px;" class="form-control" id="note-details"
+												placeholder="Apartment or suite" disabled></textarea>
+										</div>
+										<div class="mb-3">
+											<label class="text-center" for="delivery">Delivery</label><br>
+											<h4 class="form-group text-success" id="delivery-details"
+												style="text-align: left;" placeholder="Apartment or suite">
+												<b id="deliveryName"></b>
+											</h4>
+										</div>
+										<h4 class="mb-3">Payment</h4>
+										<div class="d-block my-3">
+											<div class="custom-control custom-radio">
+												<input id="credit-COD" name="paymentMethod" type="radio"
+													class="custom-control-input" checked="" disabled> <label
+													class="custom-control-label" for="credit"><b><i>COD</i></b>
+												</label>
+											</div>
+											<div class="custom-control custom-radio">
+												<input id="credit-PP" name="paymentMethod" type="radio"
+													class="custom-control-input" disabled> <label
+													class="custom-control-label" for="debit"> <i
+														class="fab fa-paypal">PAYPAL</i></label>
+											</div>
+										</div>
+
+										<hr class="mb-4">
+										<div id="btnOrder">
+											<button class="btn  btn-block" style="background-color: #f9af47;"
+												type="button" id="updateOrder-btn">
+												<b>Confirm</b>
+											</button>
+											<button class="btn btn-danger  btn-block" type="button"
+												id="cancel-order-btn">
+												<b> Cancel this order</b>
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!--Voucher Page Start-->
+	<div style="margin-top: 60px;" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" id="voucherPage"
+		ng-controller="proCtrlVoucher">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+						<em class="fa fa-home"></em>
+					</a></li>
+				<li class="active">Voucher</li>
+			</ol>
+		</div>
+		<!--filter status-->
+
+		<div class="form-group" id="form-all">
+			<label style="color: mediumpurple;" id="lblStatus" for="exampleFormControlSelect1">Status</label>
+			<select class="form-control" ng-model="search.actived" id="exampleFormControlSelect1">
+				<option value="true" selected>Active</option>
+				<option value="false">Inactive</option>
+			</select>
+		</div>
+
+		<div class="sample one">
+			<div id="search-all">
+				<input type="text" name="search" ng-model="searchtxt" placeholder="Search...">
+				<button type="submit" class="btn btn-search fa fa-search"></button>
+			</div>
+		</div>
+
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">ID Voucher</th>
+					<th scope="col">Create Time</th>
+					<th scope="col">Start Time</th>
+					<th scope="col">End Time</th>
+					<th scope="col">Voucher Code</th>
+					<th scope="col">Content</th>
+					<th scope="col">Actived</th>
+					<th scope="col">Username</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="voucher in list_vouchers | filter: searchtxt | filter: search">
+					<td>{{voucher.voucher_id}}</td>
+					<td>{{voucher.createdDate}}</td>
+					<td>{{voucher.startDate}}</td>
+					<td>{{voucher.endDate}}</td>
+					<td>{{voucher.voucherCode}}</td>
+					<td>{{voucher.content}}</td>
+					<td>{{voucher.actived ? 'Active': 'Inactive'}}</td>
+					<td>{{voucher.user.fullName}}</td>
+					<td>
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-warning" data-toggle="modal"
+							data-target="#UpdateVoucherModal{{voucher.voucher_id}}">
+							Update
+						</button>
+
+						<!-- Modal -->
+						<div class="modal fade" id="UpdateVoucherModal{{voucher.voucher_id}}" tabindex="-1"
+							role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered" role="document" style="margin-top: 180px;">
+								<div class="modal-content" style="height: 460px;">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">
+											Update Voucher</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<form enctype="multipart/form-data"
+											id="updateFormVoucher{{voucher.voucher_id}}">
+											<div class="form-group">
+												<div class="iduser">
+													<label>Create Date</label>
+													<input type="date" value="{{voucher.createdDate}}"
+														name="createdDate" class="form-control">
+												</div>
+												<div class="idorder">
+													<label for="inputToken">Start Date</label>
+													<input type="date" value="{{voucher.startDate}}" name="startDate"
+														class="form-control">
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="iduser">
+													<label for="inputPhone">End Date</label>
+													<input type="date" value="{{voucher.endDate}}" name="endDate"
+														class="form-control">
+												</div>
+												<div class="idorder">
+													<label for="inputGmail">Voucher Code</label>
+													<input type="text" value="{{voucher.voucherCode}}"
+														name="voucherCode" class="form-control">
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="iduser">
+													<label>Discount</label>
+													<input type="text" value="{{voucher.discount}}" name="discount"
+														class="form-control">
+												</div>
+												<div class="idorder">
+													<label>Actived</label>
+													<div ng-if="voucher.actived == true">
+														<select name="actived" class="custom-select">
+															<option value="true" selected>True</option>
+															<option value="false">False</option>
+														</select>
+													</div>
+
+													<div ng-if="voucher.actived == false">
+														<select name="actived" class="custom-select">
+															<option value="true">Actived</option>
+															<option value="false" selected>Inactive</option>
+														</select>
+													</div>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<div class="iduser">
+													<label>Content</label>
+													<textarea class="form-control" ng-model="voucher.content" rows="3"
+														name="content"></textarea>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<div class="iduser">
+													<input hidden type="text" name="user" value={{user.userId}}
+														class="form-control">
+												</div>
+											</div>
+											<button style="margin-left: 50px; margin-top: 10px;" type="submit"
+												ng-click="updateVoucher(voucher.voucher_id)"
+												class="btn btn-primary">Submit</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+					<td><button type="button" ng-click="deleteVoucher(voucher.voucher_id)"
+							class="btn btn-danger">Delete</button></td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#AddVoucherModal">
+			Add
+		</button>
+		<button type="button" class="btn btn-warning" id="btnEmailVoucher">
+			Email For Member
+		</button>
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="AddVoucherModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document" style="margin-top: 180px;">
+				<div class="modal-content" style="height: 460px;">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Add Voucher</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form ng-submit="createVoucher()" enctype="multipart/form-data" id="addFormVoucher">
+							<div class="form-group">
+								<div class="iduser">
+									<label>Create Date</label>
+									<input type="date" name="createdDate" class="form-control">
+								</div>
+								<div class="idorder">
+									<label for="inputToken">Start Date</label>
+									<input type="date" name="startDate" class="form-control">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="iduser">
+									<label for="inputPhone">End Date</label>
+									<input type="date" name="endDate" class="form-control">
+								</div>
+								<div class="idorder">
+									<label for="inputGmail">Voucher Code</label>
+									<input type="text" name="voucherCode" class="form-control">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="iduser">
+									<label>Discount</label>
+									<input type="text" value="{{voucher.discount}}" name="discount"
+										class="form-control">
+								</div>
+								<div class="idorder">
+									<label>Active</label>
+									<select name="actived" class="custom-select">
+										<option value="true" ng-selected>Active</option>
+										<option value="false">Inactive</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="iduser">
+									<label>Content</label>
+									<textarea class="form-control" rows="3" name="content" id="comment"></textarea>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="iduser">
+									<input hidden type="text" name="user" value={{user.userId}} class="form-control"
+										id="inputPicture">
+								</div>
+							</div>
+							<button style="margin-left: 50px; margin-top: 10px;" type="submit"
+								class="btn btn-primary">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<span id="hidden-email" sec:authentication="name"></span>
+
+	<script th:src="@{/lib/js/chart.min.js}"></script>
+	<script th:src="@{/lib/js/chart-data.js}"></script>
+	<script th:src="@{/lib/js/easypiechart.js}"></script>
+	<script th:src="@{lib/js/easypiechart-data.js}"></script>
+</body>
+
+</html>

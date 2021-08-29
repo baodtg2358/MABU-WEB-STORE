@@ -1,0 +1,126 @@
+#form-all{
+    background-color: rgba(122, 143, 142, 0.164);
+    width: 460px;
+    height: 80px;
+    border: 1px solid #fff;
+}
+
+#exampleFormControlSelect1{
+    width: 400px;
+    margin-left: 29px;
+}
+
+#lblStatus{
+    margin-top: 4px;
+    margin-left: 30px;
+}
+
+#search-all{
+    background-color: rgba(122, 143, 142, 0.164);
+    width: 265px;
+    height: 80px;
+    margin-top: -95px;
+    margin-left: 140px;
+    border: 1px solid #fff;
+}
+
+.sample input{
+    border: 1px solid #1464a144;
+    font-size: 12px;
+    height: 40px;
+    width: 60%;
+    padding: 4px 8px;
+    position: absolute;
+    outline: none;
+    border-radius: 30px;
+    transition: all .3s ease-in-out;
+    margin-top: 20px ;
+    margin-left: 150px;
+ }
+
+ .sample button
+ {
+    text-align: center;
+}
+
+  
+    .sample button:focus{
+      outline: none;
+    }
+  .sample button.btn-search{
+    margin-left: 180px;
+    background: #fff;
+    border: 1px solid #fff;
+    height: 38px;
+    font-size: 12px;
+    padding: 4px;
+    position: absolute;
+    width: 40px;
+    border-radius: 30px;
+    color: #001EFF;
+    margin-left: 211px;
+    margin-top: 21px;
+    
+  }
+  .sample button.btn-search:hover{
+    background-color: #2073b36b;
+  }
+  
+  .sample{
+      float: right;
+      height: 30px;
+      margin: 0 8%;
+      position: relative;
+      width: 400px;
+  }
+  .btnResetPassword{
+    background-color: black;
+    border: 1px solid whitesmoke;
+    transform: translate();
+  }
+
+  .profile div.card-mail{
+    background-color: rgba(122, 143, 142, 0.164);
+    border: 1px solid #ffffff;
+    margin-top: 0px;
+    height: 400px; /*chỉnh chiều cao profile*/
+    width: 800px;
+    position: relative;
+  }
+
+#emailForm{
+  
+  margin-left: 140px;
+  margin-top: 25px;
+}
+
+.InputEmail{
+  width: 500px;
+}
+
+.btnSend{
+  width: 100px;
+  height: 40px;
+  margin-right: 230px;
+}
+#sidebar-collapse ul.nav li a em.fa-envelope-square {
+  color: rgb(104, 7, 30);
+}
+.emailForm div.card{
+  margin-left: 320px;
+  margin-top: 60px;
+  height: 370px;
+  width: 600px;
+}
+
+.emailForm div.card div.card-body form#emailForm div.mb-3 input{
+  height: 130px;
+}
+
+#comment{
+  width: 300px;
+}
+
+#modal {
+  margin: 0 auto; 
+}

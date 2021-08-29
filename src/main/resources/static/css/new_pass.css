@@ -1,0 +1,137 @@
+body{
+	    background: #f7edd5;
+}
+
+.form-modal-content  {
+	position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%,-50%);
+  	border-radius: 15px;
+	width: 700px;
+	height: 400px;
+	font-family: 'Nunito', sans-serif;
+	color: black;
+	font-weight: 700;
+	font-size: 16px;
+	background: url('../img/bear5.jpg');
+	background-size:700px 400px; 
+	background-repeat: no-repeat;
+
+}
+.form-modal-content .form-detail {
+    padding: 30px 135px 30px 100px;
+	 display: inline-block;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);;
+}
+.form-modal-content .form-detail h2 {
+	font-size: 30px;
+	text-align: center;
+}
+
+.form-modal-content .form-detail h1 {
+	font-size: 30px;
+	text-align: center;
+	font-weight: bold	;
+	
+}
+
+
+
+.form-modal-content .form-detail h3{
+	text-align: center;
+}
+.form-modal-content .form-detail h2::after {
+	background: black;
+	width: 73px;
+	height: 3px;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+
+}
+.form-modal-content .form-row-total {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+}
+.form-modal-content .form-row {
+    width: 45%;
+
+}
+.form-modal-content .form-detail .form-row-last {
+	text-align: center;
+	padding: 20px;
+}
+.form-modal-content .form-detail .input-text {
+	margin-bottom: 45px;
+	
+}
+
+.form-modal-content .form-detail input {
+	width: 100%;
+    padding: 14.5px 0px 14.5px 30px;
+    border: 2px solid black;
+	color: black;
+    appearance: unset;
+    outline: none;
+    border-radius: 27.5px;
+	font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    background: rgba(221, 221, 221, 0.8)
+}
+.form-modal-content .form-detail input:focus {
+	border: 2px solid #999;
+}
+.form-modal-content .form-detail .register {
+	background: #CD853F;
+	border-radius: 25px;
+	width: 180px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	border: none;
+	margin: 0 0 7px 35px;
+	cursor: pointer;
+	font-family: 'Nunito', sans-serif;
+	color: #fff;
+	font-weight: 700;
+	font-size: 16px;
+}
+.form-modal-content .form-detail .register:hover {
+	background: #d95252;
+}
+
+.form-modal-content .form-detail .register:disabled {
+	background: #FDF5E6;
+	color: black;
+}
+
+.message{
+	padding-left: 200px;
+}
+
+.form-modal-content .form-detail .form-row-last input {
+	padding: 14px;
+}
+input::-webkit-input-placeholder {
+  color:black;
+  font-size: 16px;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('../lib/fonts/Nunito-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('../lib/fonts/Nunito-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+  

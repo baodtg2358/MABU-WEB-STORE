@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MabuStore - Products</title>
+    <link rel="icon" th:href="@{/img/logowhite.jpg}" type="image/x-icon">
+    <!--JS library-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"
+        integrity="sha512-RCgrAvvoLpP7KVgTkTctrUdv7C6t7Un3p1iaoPr1++3pybCyCsCZZN7QEHMZTcJTmcJ7jzexTO+eFpHk4OCFAg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css"
+        integrity="sha512-YdYyWQf8AS4WSB0WWdc3FbQ3Ypdm0QCWD2k4hgfqbQbRCJBEgX0iAegkl2S1Evma5ImaVXLBeUkIlP6hQ1eYKQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"
+        integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <!-- ION ICON -->
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.2.3/ionicons/ionicons.esm.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.2.3/ionicons/ionicons.js"></script>
+
+    <!--Angular-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link th:href="@{/lib/css/font-awesome.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet" type="text/css" />
+
+    <!--Custom Font-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet" />
+</head>
+
+<script>
+
+    var app = angular.module("myApp", []);
+    app.controller("proCtrl", function ($scope, $http, $rootScope) {
+
+        //SHOW CATEGORY
+        const getAllCategory = () => {
+            $http.get("http://localhost:8080/api/v1/category").then(
+                function successCallback(reponse) {
+                    $scope.list_categories = reponse.data;
+                }
+                ,
+                function errorCallback(response) {
+                    alert("Error. Try Again!");
+                }
+            );
+        }
+
+        //SHOW PRODUCT
+        const getAllProduct = () => {
+            $http.get("http://localhost:8080/api/v1/products").then(
+                function successCallback(reponse) {
+                    $scope.list_products = reponse.data;
+                    console.log(reponse.data);
+                }
+                ,
+                function errorCallback(response) {
+                    alert("Error. Try Again!");
+                }
+            );
+        }
+
+        /*  getAllCategory(); */
+        getAllProduct();
+
+
+        //CREATE PRODUCT
+        $scope.createProduct = function () {
+            var form = $("#addFormProduct")[0];
+
+            // Create an FormData object
+            var formData = new FormData(form);
+
+            //$http POST function
+            $http({
+                method: "POST",
+                enctype: 'multipart/form-data',
+                headers: {
+                    'Content-Type': undefined
+                },
+                url: "http://localhost:8080/api/v1/products",
+                data: formData,
+            }).then(
+                function successCallback(response) {
+                    alert("Successfully!");
+                    location.reload();
+                },
+                function errorCallback(response) {
+                    alert("Error. Try again!");
+                }
+            );
+        };
+
+        //UPDATE USER
+        $scope.updateProduct = function (id) {
+
+            var form = $(`#updateFormProduct${id}`)[0];
+
+            // Create an FormData object
+            var formData = new FormData(form);
+
+            for (var value of formData.values()) {
+                console.log(value);
+            }
+
+            //$http POST function
+            $http({
+                method: "PUT",
+                enctype: 'multipart/form-data',
+                headers: {
+                    'Content-Type': undefined
+                },
+                url: "http://localhost:8080/api/v1/products",
+                data: formData,
+            }).then(
+                function successCallback(response) {
+                    alert("Successfully!");
+                    location.reload();
+                },
+                function errorCallback(response) {
+                    alert("Error. Try again!");
+                }
+            );
+        };
+
+        //DELETE PRODUCT
+        $scope.deleteProduct = function (product) {
+            //$http DELETE function
+            $http({
+                method: "DELETE",
+                url: "http://localhost:8080/api/v1/products/" + product.id,
+            }).then(
+                function successCallback(response) {
+                    alert("Successfully");
+                    location.reload();
+                },
+                function errorCallback(response) {
+                    alert("Error. Try Again!");
+                }
+            );
+        };
+
+        $scope.statusProduct = true;
+
+        $scope.changeDisplayStatus = statusProduct => {
+            $scope.statusProduct = statusProduct
+        };
+
+        $scope.recoverProduct = (product) => {
+            $http({
+                method: "PUT",
+                url: "http://localhost:8080/api/v1/products/recover/" + product.id,
+            }).then(
+                function successCallback(response) {
+                    alert("Successfully");
+                    location.reload();
+                },
+                function errorCallback(response) {
+                    alert("Error. Try Again!");
+                }
+            );
+        }
+    });
+
+    $('#calendar').datepicker({
+    });
+
+    !function ($) {
+        $(document).on("click", "ul.nav li.parent > a ", function () {
+            $(this).find('em').toggleClass("fa-minus");
+        });
+        $(".sidebar span.icon").find('em:first').addClass("fa-plus");
+    }
+
+        (window.jQuery);
+    $(window).on('resize', function () {
+        if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+    })
+    $(window).on('resize', function () {
+        if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+    })
+
+    $(document).on('click', '.panel-heading span.clickable', function (e) {
+        var $this = $(this);
+        if (!$this.hasClass('panel-collapsed')) {
+            $this.parents('.panel').find('.panel-body').slideUp();
+            $this.addClass('panel-collapsed');
+            $this.find('em').removeClass('fa-toggle-up').addClass('fa-toggle-down');
+        } else {
+            $this.parents('.panel').find('.panel-body').slideDown();
+            $this.removeClass('panel-collapsed');
+            $this.find('em').removeClass('fa-toggle-down').addClass('fa-toggle-up');
+        }
+    })
+
+
+</script>
+
+<body ng-app="myApp" ng-controller="proCtrl">
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><span>MABUSTORE</span>Admin</a>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <em class="fa fa-envelope"></em><span class="label label-danger">15</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!--     /.container-fluid -->
+    </nav>
+
+
+
+
+    <div id="sidebar-collapse" class="col-sm-2  sidebar">
+        <div class="profile-sidebar">
+            <div class="profile-userpic">
+                <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="" />
+            </div>
+            <div class="profile-usertitle">
+                <div class="profile-usertitle-name" sec:authorize="isAuthenticated()"><b sec:authentication="name"></b>
+                </div>
+                <div class="profile-usertitle-status">
+                    <span class="indicator label-success"></span>Online
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="divider"></div>
+        <ul class="nav menu" style="display: flex; flex-direction: column; padding-left: 5%">
+            <li>
+                <a href=""><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a>
+            </li>
+            <li>
+                <a href=""><em class="fa fa-shopping-cart">&nbsp;</em> Products</a>
+            </li>
+            <li>
+                <a href=""><em class="fa fa-sitemap">&nbsp;</em> Type of products</a>
+            </li>
+            <li>
+                <a href=""><em class="fa fa-paper-plane-o">&nbsp;</em> Orders</a>
+            </li>
+            <li>
+                <a href=""><em class="fa fa-map-o">&nbsp;</em>Orders Detail</a>
+            </li>
+            <li>
+                <a href=""><em class="fa fa-clone">&nbsp;</em>Status Orders</a>
+            </li>
+            <li>
+                <a href=""><em class="fa fa-user-o">&nbsp;</em>Customer</a>
+            </li>
+            <li>
+                <a href=""><em class="fa fa-user-circle-o">&nbsp;</em>Staffs</a>
+            </li>
+            <li>
+                <a href=""><em class="fa fa-power-off">&nbsp;</em> Logout</a>
+            </li>
+        </ul>
+    </div>
+    <!--/.sidebar-->
+
+    <div class="col-sm-10 offset-sm-2  main">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">
+                        <em class="fa fa-home"></em>
+                    </a>
+                </li>
+                <li class="active">Products Managenment</li>
+            </ol>
+        </div>
+        <!--/.row-->
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Products Managenment</h1>
+            </div>
+        </div>
+        <!--/.row-->
+
+        <!-- SET STATUS -->
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Filter status</label>
+            <select ng-change="changeDisplayStatus(statusProduct)" ng-model="statusProduct" class="form-control"
+                id="exampleFormControlSelect1">
+                <option ng-value="true" selected>Active</option>
+                <option ng-value="false">Inactive</option>
+            </select>
+        </div>
+        <!-- END SET STATUS -->
+
+        <!-- SHOW PRODUCT -->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Product name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Price of product</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Category</th>
+                    <!-- <th scope="col">Functional</th>
+            <th scope="col">Functional</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr ng-repeat="product in list_products" ng-if="product.status==true"> -->
+                <tr ng-repeat="product in list_products">
+                    <th>{{product.id}}</th>
+                    <td>{{product.name}}</td>
+                    <td>
+                        <img src="@{/image/{{product.picture}}}" width="80px" alt="none" />
+                    </td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.status}}</td>
+                    <td>{{product.size}}</td>
+                    <td>{{product.category.type}}</td>
+                    <div>
+                        <td ng-if="product.status==true">
+                            <button type="button" class="btn btn-warning" data-toggle="modal"
+                                data-target="#UpdateModal{{product.id}}">
+                                Update
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="UpdateModal{{product.id}}" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">
+                                                Update Modal
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form enctype="multipart/form-data" id="updateFormProduct{{product.id}}">
+                                                <div class="form-group">
+                                                    <label>ID</label>
+                                                    <input readonly name="id" value="{{product.id}}" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Name</label>
+                                                    <input name="name" ng-model="product.name" type="text"
+                                                        class="form-control" aria-describedby="NameHelp" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Image</label>
+                                                    <input type="file" name="file" accept="image/png, image/jpeg" />
+                                                    <!--<img src="" alt="Image Product" id="thumbnail">-->
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Price</label>
+                                                    <input type="number" name="price" ng-model="product.price"
+                                                        class="form-control" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Status</label>
+
+                                                    <div ng-if="product.status == true">
+                                                        <select name="status" class="custom-select">
+                                                            <option value="true" selected>Active</option>
+                                                            <option value="false">Inactive</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div ng-if="product.status ==false">
+                                                        <select name="status" class="custom-select">
+                                                            <option value="true">Active</option>
+                                                            <option value="false" selected>Inactive</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Size</label>
+                                                    <input name="size" ng-model="product.size" type="text"
+                                                        class="form-control" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Category</label>
+                                                    <select class="custom-select" name="categoryID">
+                                                        <option ng-repeat="category in list_categories"
+                                                            ng-value="{{category.id}}"
+                                                            ng-selected="category.id === product.category.id">
+                                                            {{category.type}}
+                                                        </option>
+                                                    </select>
+                                                </div>
+
+                                                <!-- UPDATE -->
+                                                <input type="button" value="Update" ng-click="updateProduct(product.id)"
+                                                    class="btn btn-primary"></input>
+                                                <!-- <button data-toggle="modal" data-target="#myModal" ng-click="updateProduct(product)"> -->
+                                                <!-- Update
+              </button> -->
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <!-- DELETE -->
+                        <td ng-if="product.status==true">
+                            <button type="button" ng-click="deleteProduct(product)"
+                                class="btn btn-danger">Inactive</button>
+                        </td>
+                        <td ng-if="product.status==false">
+                            <button type="button" ng-click="recoverProduct(product)"
+                                class="btn btn-primary">Recover</button>
+                        </td>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ADD PRODUCT -->
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AddModal">
+            Add
+        </button>
+        <!-- Modal CREATE PRODCT -->
+        <div ng-submit="createProduct()" class="modal fade" id="AddModal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Modal</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form enctype="multipart/form-data" id="addFormProduct">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input name="name" type="text" class="form-control" aria-describedby="NameHelp"
+                                    placeholder="Enter Name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input type="file" name="file" accept="image/png, image/jpeg" />
+                                <!--<img src="" alt="Image Product" id="thumbnail">-->
+                            </div>
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input name="price" type="number" class="form-control" placeholder="Price" />
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select name="status" class="custom-select">
+                                    <option value="true" ng-selected>Active</option>
+                                    <option value="false">Inactive</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Size</label>
+                                <input name="size" type="number" class="form-control" placeholder="Size" />
+                            </div>
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select name="categoryID" class="custom-select">
+                                    <option ng-repeat="category in list_categories" ng-value="{{category.id}}">
+                                        {{category.type}}
+                                    </option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Button trigger modal -->
+    </div>
+
+    <!--/.main-->
+</body>
+
+</html>
